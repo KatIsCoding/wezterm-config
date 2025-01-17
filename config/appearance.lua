@@ -1,20 +1,33 @@
-local gpu_adapters = require('utils.gpu_adapter')
+local gpu_adapters = require('utils.gpu-adapter')
 local backdrops = require('utils.backdrops')
 local colors = require('colors.custom')
 
 return {
+<<<<<<< HEAD
    animation_fps = 144,
    max_fps = 144,
+=======
+   max_fps = 120,
+>>>>>>> 9088aded90d5dfaf08397e0160a495ad35502351
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
    webgpu_preferred_adapter = gpu_adapters:pick_best(),
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
+   underline_thickness = '1.5pt',
+
+   -- cursor
+   animation_fps = 120,
+   cursor_blink_ease_in = 'EaseOut',
+   cursor_blink_ease_out = 'EaseOut',
+   default_cursor_style = 'BlinkingBlock',
+   cursor_blink_rate = 650,
 
    -- color scheme
    colors = colors,
 
    -- background
-   background = backdrops:create_opts(),
+   background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
 
    -- scrollbar
    enable_scroll_bar = true,
@@ -49,5 +62,13 @@ return {
    inactive_pane_hsb = {
       saturation = 1,
       brightness = 1,
+   },
+
+   visual_bell = {
+      fade_in_function = 'EaseIn',
+      fade_in_duration_ms = 250,
+      fade_out_function = 'EaseOut',
+      fade_out_duration_ms = 250,
+      target = 'CursorColor',
    },
 }
