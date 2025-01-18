@@ -3,12 +3,8 @@ local backdrops = require('utils.backdrops')
 local colors = require('colors.custom')
 
 return {
-<<<<<<< HEAD
    animation_fps = 144,
    max_fps = 144,
-=======
-   max_fps = 120,
->>>>>>> 9088aded90d5dfaf08397e0160a495ad35502351
    front_end = 'WebGpu',
    webgpu_power_preference = 'HighPerformance',
    webgpu_preferred_adapter = gpu_adapters:pick_best(),
